@@ -20,7 +20,7 @@ app.use(globalErrorHandler);
 app.get('/', (req: Request, res: Response) => {
     res.json({
       sucess: true,
-      message: 'Welcome to Marriage Consultancy Server',
+      message: 'Welcome to Doctor Portal Server',
       status: httpStatus.OK,
     })
 });

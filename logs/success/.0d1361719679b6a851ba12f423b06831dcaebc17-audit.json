@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/logs/success/.0d1361719679b6a851ba12f423b06831dcaebc17-audit.json",
+    "files": [
+        {
+            "date": 1719559843563,
+            "name": "/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/logs/success/DPS-2024-06-28-info.log",
+            "hash": "b1c44bfa2599572a301d098b44baa6edbff4311a76e0baac833386b7f0e39bc9"
+        }
+    ],
+    "hashType": "sha256"
+}
