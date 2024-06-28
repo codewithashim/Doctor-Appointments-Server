@@ -6,9 +6,9 @@
     "auditLog": "/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/logs/errors/.0e29dd29deb042aaa4fd03dbb71571ebc23a1355-audit.json",
     "files": [
         {
-            "date": 1719559843567,
+            "date": 1719568238195,
             "name": "/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/logs/errors/DPS-2024-06-28-error.log",
-            "hash": "b487f05b9bd9c2f2a8e47860f4f38f46b436ec2210d798a1750f8ff766c9331b"
+            "hash": "3192f019640641bdff92ca6350641943ed9d7c74553b53094a7d6e7218718b28"
         }
     ],
     "hashType": "sha256"

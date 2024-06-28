@@ -1,2 +1,162 @@
-Fri Jun 28 2024 13:30:44 [Doctor Server] info: 🛢 Database is connected successfully
-Fri Jun 28 2024 13:30:44 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:50:50 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:50:50 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:50:57 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim@gmail.com","phone":"0199999090","role":"User","password":"123456789"}
+Fri Jun 28 2024 15:50:58 [Doctor Server] info: CreateUser response: "codewithashim@gmail.com"
+Fri Jun 28 2024 15:51:3 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim@gmail.com","phone":"0199999090","role":"User","password":"123456789"}
+Fri Jun 28 2024 15:51:12 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim@gmail.com","phone":"01999990905","role":"User","password":"123456789"}
+Fri Jun 28 2024 15:51:12 [Doctor Server] info: CreateUser response: "codewithashim@gmail.com"
+Fri Jun 28 2024 15:51:44 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:51:44 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:51:52 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:51:52 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:52:21 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:52:21 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:52:33 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:52:33 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:54:33 [Doctor Server] info: LoginUser called with data: {"email":"codewithashim@gmail.com","password":"123456789"}
+Fri Jun 28 2024 15:55:1 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:55:1 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:55:7 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:55:7 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:55:48 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:55:48 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:56:8 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:56:8 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:56:21 [Doctor Server] info: LoginUser called with data: {"email":"codewithashim@gmail.com","password":"123456789"}
+Fri Jun 28 2024 15:57:28 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:57:28 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:57:33 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:57:33 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:57:39 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:57:39 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:57:43 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:57:43 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:57:45 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 15:57:45 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 15:58:12 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim@gmail.com","phone":"01999990905","role":"User","password":"123456789"}
+Fri Jun 28 2024 15:58:12 [Doctor Server] info: CreateUser response: "codewithashim@gmail.com"
+Fri Jun 28 2024 15:58:19 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim@gmail.com","phone":"0199999090","role":"User","password":"123456789"}
+Fri Jun 28 2024 15:58:19 [Doctor Server] info: CreateUser response: "codewithashim@gmail.com"
+Fri Jun 28 2024 16:1:35 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:1:35 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:1:50 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:1:50 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:2:7 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:2:7 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:2:37 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:2:37 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:2:39 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:2:39 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:2:44 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:2:44 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:2:52 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:2:52 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:6:8 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:6:8 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:6:14 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:6:14 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:6:21 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:6:21 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:8:22 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:8:22 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:8:32 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim@gmail.com","phone":"0199999090","role":"User","password":"123456789"}
+Fri Jun 28 2024 16:8:40 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim@gmail.com","phone":"0199999090093","role":"User","password":"123456789"}
+Fri Jun 28 2024 16:8:40 [Doctor Server] info: CreateUser response: "codewithashim@gmail.com"
+Fri Jun 28 2024 16:10:15 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:10:15 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:10:24 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:10:24 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:10:31 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim@gmail.com","phone":"0199993","role":"User","password":"123456789"}
+Fri Jun 28 2024 16:10:31 [Doctor Server] info: CreateUser response: "codewithashim@gmail.com"
+Fri Jun 28 2024 16:10:41 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim2@gmail.com","phone":"0199993","role":"User","password":"123456789"}
+Fri Jun 28 2024 16:10:50 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim2@gmail.com","phone":"01999993","role":"User","password":"123456789"}
+Fri Jun 28 2024 16:10:50 [Doctor Server] info: CreateUser response: "codewithashim2@gmail.com"
+Fri Jun 28 2024 16:13:20 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:13:20 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:13:37 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:13:37 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:13:48 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:13:49 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:14:5 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:14:5 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:14:32 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:14:32 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:14:34 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:14:34 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:17:47 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:17:47 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:18:0 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:18:0 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:18:5 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:18:6 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:18:10 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:18:10 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:18:13 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:18:13 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:18:21 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:18:21 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:18:23 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim2@gmail.com","phone":"0199955993","role":"User","password":"123456789"}
+Fri Jun 28 2024 16:18:38 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim892@gmail.com","phone":"0199955993","role":"User","password":"123456789"}
+Fri Jun 28 2024 16:18:38 [Doctor Server] info: CreateUser response: "codewithashim892@gmail.com"
+Fri Jun 28 2024 16:18:42 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim892@gmail.com","phone":"0199955993","role":"User","password":"123456789"}
+Fri Jun 28 2024 16:18:50 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim892@gmail.com","phone":"019995885993","role":"User","password":"123456789"}
+Fri Jun 28 2024 16:18:55 [Doctor Server] info: CreateUser called with data: {"name":"Ashim Rudra Paul","email":"codewithashim8992@gmail.com","phone":"019995885993","role":"User","password":"123456789"}
+Fri Jun 28 2024 16:18:55 [Doctor Server] info: CreateUser response: "codewithashim8992@gmail.com"
+Fri Jun 28 2024 16:19:35 [Doctor Server] info: LoginUser called with data: {"email":"codewithashim@gmail.com","password":"123456789"}
+Fri Jun 28 2024 16:20:28 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:20:28 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:20:30 [Doctor Server] info: LoginUser called with data: {"email":"codewithashim@gmail.com","password":"123456789"}
+Fri Jun 28 2024 16:20:47 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:20:47 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:31:19 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:31:19 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:36:54 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:36:54 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:36:56 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:36:56 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:37:14 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:37:14 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:37:19 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:37:19 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:37:45 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:37:45 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:38:46 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:38:46 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:39:29 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:39:29 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:39:45 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:39:45 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:42:0 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:42:0 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:42:12 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:42:12 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:43:24 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:43:24 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:45:31 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:45:31 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:45:37 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:45:37 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:45:43 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:45:43 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:45:48 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:45:49 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:46:27 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:46:27 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:47:38 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:47:38 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:48:8 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:48:8 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:48:21 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:48:21 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:53:26 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:53:26 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:53:41 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:53:41 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:54:19 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:54:19 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:55:2 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:55:2 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:55:14 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:55:14 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:56:10 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:56:10 [Doctor Server] info: Application  listening on port 8000
