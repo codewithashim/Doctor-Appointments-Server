@@ -12,10 +12,19 @@ import { jwtHelper } from "../../../helpers/jwtHelper";
 import config from "../../../config";
 import { JwtPayload, Secret } from "jsonwebtoken";
 import { responseMessage } from "../../../constants/message";
+import { Patients } from "../patients/patients.model";
 
 const createUser = async (payload: IUser): Promise<IUser | null> => {
   try {
     const user = await User.create(payload);
+    if(payload.role === "Patient"){
+      const patient = await Patients.create({
+        name: user?.name,
+        email: user?.email,
+        phone: user?.phone,
+        userId: user?._id
+      });
+    }
     return user;
   } catch (error) {
     console.log(error);

@@ -8,7 +8,7 @@ import { responseMessage } from "../../../constants/message";
 
 const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   const result = await UserService.getAllUsers();
-
+  
   sendResponse<IUser[]>(res, {
     statusCode: httpStatus.OK,
     success: true,

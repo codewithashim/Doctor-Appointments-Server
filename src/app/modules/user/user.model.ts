@@ -14,11 +14,11 @@ const UserSchema = new Schema<IUser>(
       type: String,
       required: true,
       unique: true,
-      index: true, 
+      index: true,
     },
     phone: {
       type: String,
-      index: { unique: true }, 
+      index: { unique: true },
     },
     password: {
       type: String,
@@ -62,7 +62,6 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
-
 UserSchema.methods.isUserExist = async function (
   email: string
 ): Promise<Partial<IUser> | null> {
@@ -74,7 +73,7 @@ UserSchema.methods.isUserExist = async function (
       role: 1,
       name: 1,
       email: 1,
-      phone: 1
+      phone: 1,
     }
   );
 
@@ -88,8 +87,5 @@ UserSchema.methods.isPasswordMatched = async function (
   const isPasswordMatched = await bcrypt.compare(givenPassword, savedPassword);
   return isPasswordMatched;
 };
-
-
-
 
 export const User = model<IUser, UserModel>("User", UserSchema);

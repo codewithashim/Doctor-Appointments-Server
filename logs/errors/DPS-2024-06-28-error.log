@@ -1,0 +1,4 @@
+Fri Jun 28 2024 16:39:53 [Doctor Server] error: TypeError: Cannot read properties of undefined (reading 'error')
+    at /usr/src/app/src/server.ts:23:17
+    at Generator.throw (<anonymous>)
+    at rejected (/usr/src/app/src/server.ts:6:65)

@@ -160,3 +160,17 @@ Fri Jun 28 2024 16:55:14 [Doctor Server] info: 🛢 Database is connected succes
 Fri Jun 28 2024 16:55:14 [Doctor Server] info: Application  listening on port 8000
 Fri Jun 28 2024 16:56:10 [Doctor Server] info: 🛢 Database is connected successfully
 Fri Jun 28 2024 16:56:10 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:58:24 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 16:58:24 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 17:25:52 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 17:25:53 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 16:39:53 [Doctor Server] error: TypeError: Cannot read properties of undefined (reading 'error')
+    at /usr/src/app/src/server.ts:23:17
+    at Generator.throw (<anonymous>)
+    at rejected (/usr/src/app/src/server.ts:6:65)
+Fri Jun 28 2024 22:43:26 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 22:43:26 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 22:46:24 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 22:46:24 [Doctor Server] info: Application  listening on port 8000
+Fri Jun 28 2024 22:46:29 [Doctor Server] info: 🛢 Database is connected successfully
+Fri Jun 28 2024 22:46:29 [Doctor Server] info: Application  listening on port 8000

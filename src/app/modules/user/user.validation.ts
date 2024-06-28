@@ -8,7 +8,7 @@ const createUserZodSchema = z.object({
     password: z.string({
       required_error: "Password is required",
     }),
-    role: z.enum(["User", "Admin", "Doctor"]),
+    role: z.enum(["Patient", "Admin", "Doctor"]),
     name: z.string({
       required_error: "Name is required",
     }),
@@ -23,7 +23,7 @@ const updateUserZodSchema = z.object({
     .object({
       name: z.string().optional(),
       phone: z.string().optional(),
-      role: z.enum(["User", "Admin", "Doctor"]).optional(),
+      role: z.enum(["Patient", "Admin", "Doctor"]).optional(),
       password: z.string().optional(),
       email: z.string().optional(),
     })
