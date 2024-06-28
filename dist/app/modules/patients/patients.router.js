@@ -14,6 +14,7 @@ const router = express_1.default.Router();
 router.post("/create", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.USER), (0, validateRequest_1.default)(patients_validation_1.patientsValidator.createPatientsZodSchema), patients_controller_1.PatientController.createPatient);
 router.get("/get", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.USER), patients_controller_1.PatientController.getAllPatient);
 router.get("/:id", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.USER), patients_controller_1.PatientController.getPatientById);
+router.get("/user/:userId", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.USER), patients_controller_1.PatientController.getPatientByUserId);
 router.patch("/:id", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.USER), patients_controller_1.PatientController.updatePatient);
 router.delete("/:id", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.USER), patients_controller_1.PatientController.deletePatient);
 exports.PatientsRoutes = router;

@@ -26,6 +26,12 @@ router.get(
   PatientController.getPatientById
 );
 
+router.get(
+  "/user/:userId",
+  auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.USER),
+  PatientController.getPatientByUserId
+);
+
 router.patch(
   "/:id",
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.USER),

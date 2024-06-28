@@ -24,6 +24,7 @@ const createPatient = catchAsync(async (req: Request, res: Response) => {
 const getAllPatient = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, patinentFilterableFields);
   const paginationOptions = pick(req.query, paginationFields);
+  const user = req?.user; 
 
   const result = await PatientService.getAllPatients(
     filters,
@@ -39,6 +40,16 @@ const getAllPatient = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getPatientByUserId = catchAsync(async (req: Request, res: Response) => {
+  const result = await PatientService.getPatientsByUserId(req.params.id);
+
+  sendResponse<any>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Patient fetched successfully!",
+    data: result,
+  });
+});
 
 
 const getPatientById = catchAsync(async (req: Request, res: Response) => {
@@ -82,5 +93,6 @@ export const PatientController = {
   updatePatient,
   getPatientById,
   createPatient,
-  getAllPatient
+  getAllPatient,
+  getPatientByUserId
 };

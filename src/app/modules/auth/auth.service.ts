@@ -13,16 +13,23 @@ import config from "../../../config";
 import { JwtPayload, Secret } from "jsonwebtoken";
 import { responseMessage } from "../../../constants/message";
 import { Patients } from "../patients/patients.model";
+import { Doctor } from "../doctor/doctor.model";
 
 const createUser = async (payload: IUser): Promise<IUser | null> => {
   try {
     const user = await User.create(payload);
-    if(payload.role === "Patient"){
+    if (payload.role === "Patient") {
       const patient = await Patients.create({
         name: user?.name,
         email: user?.email,
         phone: user?.phone,
-        userId: user?._id
+        userId: user?._id,
+      });
+    } else if (payload.role === "Doctor") {
+      const doctor = await Doctor.create({
+        name: user?.name,
+        email: user?.email,
+        userId: user?._id,
       });
     }
     return user;
@@ -42,24 +49,27 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
     const user = await User.findOne({ email }).select("+password");
 
     if (!user) {
-      throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
+      throw new ApiError(httpStatus.NOT_FOUND, "User not found");
     }
 
     // Check password
-    const isPasswordMatch = await user.isPasswordMatched(password, user.password);
+    const isPasswordMatch = await user.isPasswordMatched(
+      password,
+      user.password
+    );
     if (!isPasswordMatch) {
-      throw new ApiError(httpStatus.UNAUTHORIZED, 'Incorrect password');
+      throw new ApiError(httpStatus.UNAUTHORIZED, "Incorrect password");
     }
 
-    const { role, email: userEmail, name, phone } = user;
+    const { role, email: userEmail, name, phone, id } = user;
     const accessToken = jwtHelper.createToken(
-      { role, email: userEmail, name, phone },
+      { role, email: userEmail, name, phone , id},
       config.jwt.secret as Secret,
       config.jwt.expiresIn as string
     );
 
     const refreshToken = jwtHelper.createToken(
-      { role, email: userEmail, name, phone },
+      { role, email: userEmail, name, phone, id },
       config.jwt.refresh_secret as Secret,
       config.jwt.refresh_expires as string
     );
@@ -67,6 +77,7 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
     return {
       accessToken,
       refreshToken,
+      id,
       name,
       phone,
       email: userEmail,
@@ -75,11 +86,10 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
   } catch (error) {
     throw new ApiError(
       httpStatus.INTERNAL_SERVER_ERROR,
-      'Internal server error'
+      "Internal server error"
     );
   }
 };
-
 
 const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
   // verify that the refresh token
@@ -91,26 +101,29 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
       config.jwt.refresh_secret as Secret
     );
   } catch (error) {
-    throw new ApiError(httpStatus.UNAUTHORIZED, 'Invalid refresh token');
+    throw new ApiError(httpStatus.UNAUTHORIZED, "Invalid refresh token");
   }
 
   // check deleted user
 
-  const { userId, role } = verifiedToken;
+  const { email, role, name , phone, id } = verifiedToken;
   const user = new User();
-  const isUserExist = await user.isUserExist(userId);
+  const isUserExist = await user.isUserExist(email);
   if (!isUserExist) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
+    throw new ApiError(httpStatus.NOT_FOUND, "User not found");
   }
 
-  if (role !== 'admin') {
-    throw new ApiError(httpStatus.FORBIDDEN, 'Forbidden');
+  if (role !== "Admin") {
+    throw new ApiError(httpStatus.FORBIDDEN, "Forbidden");
   }
 
   // create access token and refresh token
   const newAccessToken = jwtHelper.createToken(
     {
-      userId,
+      id,
+      name,
+      email,
+      phone,
       role,
     },
     config.jwt.secret as Secret,
@@ -130,11 +143,11 @@ const changePassword = async (
 
   // Find the user by email
   const isUserExist = await User.findOne({ email: user?.email }).select(
-    '+password'
+    "+password"
   );
 
   if (!isUserExist) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'User does not exist');
+    throw new ApiError(httpStatus.NOT_FOUND, "User does not exist");
   }
 
   // Checking old password
@@ -144,7 +157,7 @@ const changePassword = async (
   );
 
   if (!isPasswordMatched) {
-    throw new ApiError(httpStatus.UNAUTHORIZED, 'Old Password is incorrect');
+    throw new ApiError(httpStatus.UNAUTHORIZED, "Old Password is incorrect");
   }
 
   // Update password
@@ -156,5 +169,5 @@ export const AuthService = {
   createUser,
   userLogin,
   refreshToken,
-  changePassword
+  changePassword,
 };

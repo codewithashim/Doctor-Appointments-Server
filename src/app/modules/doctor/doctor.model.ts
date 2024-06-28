@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
-import { IPatients, PatientsModel } from "./patients.interface";
+import { IDoctor, DoctorModel } from "./doctor.interface";
 
-const PatientsSchema = new Schema<IPatients>(
+const DoctorSchema = new Schema<IDoctor>(
   {
     name: {
       type: String,
@@ -11,15 +11,14 @@ const PatientsSchema = new Schema<IPatients>(
       type: String,
       required: true,
     },
-    phone: {
+    specialty: {
       type: String,
-      index: { unique: true },
     },
     userId: {
       type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      index: true, 
+      index: true,
     },
     appointments: [{
       type: Schema.Types.ObjectId,
@@ -34,16 +33,14 @@ const PatientsSchema = new Schema<IPatients>(
   }
 );
 
-// Virtual field to populate appointments
-PatientsSchema.virtual('userAppointments', {
+DoctorSchema.virtual('userAppointments', {
   ref: 'Appointments',
   localField: '_id',
-  foreignField: 'patient_id',
-  justOne: false,
+  foreignField: 'doctor_id',
+  justOne: false,  
 });
 
-
-export const Patients = model<IPatients, PatientsModel>(
-  "Patients",
-  PatientsSchema
+export const Doctor = model<IDoctor, DoctorModel>(
+  "Doctor",
+  DoctorSchema
 );

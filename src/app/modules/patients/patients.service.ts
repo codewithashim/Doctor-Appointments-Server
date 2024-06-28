@@ -8,18 +8,15 @@ import { patinentSearchableFields } from "./patients.constents";
 import { IPatientFilter, IPatients } from "./patients.interface";
 import { Patients } from "./patients.model";
 
-
 const createPatient = async (payload: IPatients): Promise<IPatients | null> => {
   const patient = await Patients.create(payload);
   return patient;
 };
 
-
 const getAllPatients = async (
   filters: IPatientFilter,
   paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IPatients[]>> => {
-
   const { limit, page, skip, sortBy, sortOrder } =
     paginationHelpers.calculatePagination(paginationOptions);
 
@@ -29,10 +26,10 @@ const getAllPatients = async (
 
   if (searchTerm) {
     andConditions.push({
-      $or: patinentSearchableFields.map(field => ({
+      $or: patinentSearchableFields.map((field) => ({
         [field]: {
           $regex: searchTerm,
-          $paginationOptions: 'i',
+          $paginationOptions: "i",
         },
       })),
     });
@@ -47,7 +44,6 @@ const getAllPatients = async (
   }
 
   const sortConditions: { [key: string]: SortOrder } = {};
-  
 
   if (sortBy && sortOrder) {
     sortConditions[sortBy] = sortOrder;
@@ -57,7 +53,11 @@ const getAllPatients = async (
     andConditions.length > 0 ? { $and: andConditions } : {};
 
   const result = await Patients.find(whereConditions)
-    .populate('userId')
+    .populate("userId")
+    .populate({
+      path: "appointments",
+      options: { sort: { createdAt: -1 } },
+    })
     .sort(sortConditions)
     .skip(skip)
     .limit(limit);
@@ -74,10 +74,25 @@ const getAllPatients = async (
   };
 };
 
-
 const getPatientById = async (id: string): Promise<IPatients | null> => {
-  const patient = await Patients.findById(id).populate('userId');
+  const patient = await Patients.findById(id)
+    .populate("userId")
+    .populate({
+      path: "appointments",
+      options: { sort: { createdAt: -1 } },
+    });
   return patient;
+};
+
+const getPatientsByUserId = async (userId: string): Promise<IPatients[]> => {
+  const patients = await Patients.find({ userId })
+    .populate({
+      path: "userAppointments",
+      options: { sort: { createdAt: -1 } },
+    })
+    .exec();
+
+  return patients;
 };
 
 const updatePatient = async (
@@ -113,4 +128,5 @@ export const PatientService = {
   updatePatient,
   deletePatient,
   createPatient,
+  getPatientsByUserId,
 };

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Patients = void 0;
+exports.Doctor = void 0;
 const mongoose_1 = require("mongoose");
-const PatientsSchema = new mongoose_1.Schema({
+const DoctorSchema = new mongoose_1.Schema({
     name: {
         type: String,
         required: true,
@@ -11,9 +11,8 @@ const PatientsSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    phone: {
+    specialty: {
         type: String,
-        index: { unique: true },
     },
     userId: {
         type: mongoose_1.Schema.Types.ObjectId,
@@ -31,11 +30,10 @@ const PatientsSchema = new mongoose_1.Schema({
         virtuals: true,
     },
 });
-// Virtual field to populate appointments
-PatientsSchema.virtual('userAppointments', {
+DoctorSchema.virtual('userAppointments', {
     ref: 'Appointments',
     localField: '_id',
-    foreignField: 'patient_id',
+    foreignField: 'doctor_id',
     justOne: false,
 });
-exports.Patients = (0, mongoose_1.model)("Patients", PatientsSchema);
+exports.Doctor = (0, mongoose_1.model)("Doctor", DoctorSchema);

@@ -23,26 +23,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PatientService = void 0;
+exports.DoctorService = void 0;
 const ApiError_1 = __importDefault(require("../../../errors/ApiError"));
 const http_status_1 = __importDefault(require("http-status"));
 const paginationHelper_1 = require("../../../helpers/paginationHelper");
-const patients_constents_1 = require("./patients.constents");
-const patients_model_1 = require("./patients.model");
-const createPatient = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-    const patient = yield patients_model_1.Patients.create(payload);
-    return patient;
+const doctor_model_1 = require("./doctor.model");
+const doctor_constents_1 = require("./doctor.constents");
+const createDoctor = (payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const doctor = yield doctor_model_1.Doctor.create(payload);
+    return doctor;
 });
-const getAllPatients = (filters, paginationOptions) => __awaiter(void 0, void 0, void 0, function* () {
+const getAllDoctors = (filters, paginationOptions) => __awaiter(void 0, void 0, void 0, function* () {
     const { limit, page, skip, sortBy, sortOrder } = paginationHelper_1.paginationHelpers.calculatePagination(paginationOptions);
     const { searchTerm } = filters, filtersData = __rest(filters, ["searchTerm"]);
     const andConditions = [];
     if (searchTerm) {
         andConditions.push({
-            $or: patients_constents_1.patinentSearchableFields.map((field) => ({
+            $or: doctor_constents_1.doctorSearchableFields.map(field => ({
                 [field]: {
                     $regex: searchTerm,
-                    $paginationOptions: "i",
+                    $paginationOptions: 'i',
                 },
             })),
         });
@@ -59,16 +59,12 @@ const getAllPatients = (filters, paginationOptions) => __awaiter(void 0, void 0,
         sortConditions[sortBy] = sortOrder;
     }
     const whereConditions = andConditions.length > 0 ? { $and: andConditions } : {};
-    const result = yield patients_model_1.Patients.find(whereConditions)
-        .populate("userId")
-        .populate({
-        path: "appointments",
-        options: { sort: { createdAt: -1 } },
-    })
+    const result = yield doctor_model_1.Doctor.find(whereConditions)
+        .populate('userId')
         .sort(sortConditions)
         .skip(skip)
         .limit(limit);
-    const total = yield patients_model_1.Patients.countDocuments();
+    const total = yield doctor_model_1.Doctor.countDocuments();
     return {
         meta: {
             page,
@@ -78,45 +74,37 @@ const getAllPatients = (filters, paginationOptions) => __awaiter(void 0, void 0,
         data: result,
     };
 });
-const getPatientById = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const patient = yield patients_model_1.Patients.findById(id)
-        .populate("userId")
-        .populate({
-        path: "appointments",
-        options: { sort: { createdAt: -1 } },
-    });
-    return patient;
+const getDoctorById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const doctor = yield doctor_model_1.Doctor.findById(id).populate('userId');
+    return doctor;
 });
-const getPatientsByUserId = (userId) => __awaiter(void 0, void 0, void 0, function* () {
-    const patients = yield patients_model_1.Patients.find({ userId })
-        .populate({
-        path: "userAppointments",
-        options: { sort: { createdAt: -1 } },
-    })
-        .exec();
-    return patients;
-});
-const updatePatient = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
-    const isExist = yield patients_model_1.Patients.findOne({ _id: id });
+const updateDoctor = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const isExist = yield doctor_model_1.Doctor.findOne({ _id: id });
     if (!isExist) {
-        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, "Patient not found");
+        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, "Doctor not found");
     }
-    const PatientData = __rest(payload, []);
-    const updatedPatientData = Object.assign({}, PatientData);
-    const result = yield patients_model_1.Patients.findOneAndUpdate({ _id: id }, updatedPatientData, {
+    const DoctorData = __rest(payload, []);
+    const updatedDoctorData = Object.assign({}, DoctorData);
+    const result = yield doctor_model_1.Doctor.findOneAndUpdate({ _id: id }, updatedDoctorData, {
         new: true,
     });
     return result;
 });
-const deletePatient = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const patient = yield patients_model_1.Patients.findByIdAndDelete(id);
-    return patient;
+const deleteDoctor = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const doctor = yield doctor_model_1.Doctor.findByIdAndDelete(id);
+    return doctor;
 });
-exports.PatientService = {
-    getAllPatients,
-    getPatientById,
-    updatePatient,
-    deletePatient,
-    createPatient,
-    getPatientsByUserId,
+const getDoctorsByUserId = (userId) => __awaiter(void 0, void 0, void 0, function* () {
+    const doctors = yield doctor_model_1.Doctor.find({ userId })
+        .populate('userAppointments')
+        .exec();
+    return doctors;
+});
+exports.DoctorService = {
+    getAllDoctors,
+    getDoctorById,
+    updateDoctor,
+    deleteDoctor,
+    createDoctor,
+    getDoctorsByUserId
 };

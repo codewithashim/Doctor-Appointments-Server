@@ -20,6 +20,7 @@ const jwtHelper_1 = require("../../../helpers/jwtHelper");
 const config_1 = __importDefault(require("../../../config"));
 const message_1 = require("../../../constants/message");
 const patients_model_1 = require("../patients/patients.model");
+const doctor_model_1 = require("../doctor/doctor.model");
 const createUser = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield user_model_1.User.create(payload);
@@ -28,7 +29,14 @@ const createUser = (payload) => __awaiter(void 0, void 0, void 0, function* () {
                 name: user === null || user === void 0 ? void 0 : user.name,
                 email: user === null || user === void 0 ? void 0 : user.email,
                 phone: user === null || user === void 0 ? void 0 : user.phone,
-                userId: user === null || user === void 0 ? void 0 : user._id
+                userId: user === null || user === void 0 ? void 0 : user._id,
+            });
+        }
+        else if (payload.role === "Doctor") {
+            const doctor = yield doctor_model_1.Doctor.create({
+                name: user === null || user === void 0 ? void 0 : user.name,
+                email: user === null || user === void 0 ? void 0 : user.email,
+                userId: user === null || user === void 0 ? void 0 : user._id,
             });
         }
         return user;
@@ -43,19 +51,20 @@ const userLogin = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield user_model_1.User.findOne({ email }).select("+password");
         if (!user) {
-            throw new ApiError_1.default(http_status_1.default.NOT_FOUND, 'User not found');
+            throw new ApiError_1.default(http_status_1.default.NOT_FOUND, "User not found");
         }
         // Check password
         const isPasswordMatch = yield user.isPasswordMatched(password, user.password);
         if (!isPasswordMatch) {
-            throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, 'Incorrect password');
+            throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, "Incorrect password");
         }
-        const { role, email: userEmail, name, phone } = user;
-        const accessToken = jwtHelper_1.jwtHelper.createToken({ role, email: userEmail, name, phone }, config_1.default.jwt.secret, config_1.default.jwt.expiresIn);
-        const refreshToken = jwtHelper_1.jwtHelper.createToken({ role, email: userEmail, name, phone }, config_1.default.jwt.refresh_secret, config_1.default.jwt.refresh_expires);
+        const { role, email: userEmail, name, phone, id } = user;
+        const accessToken = jwtHelper_1.jwtHelper.createToken({ role, email: userEmail, name, phone, id }, config_1.default.jwt.secret, config_1.default.jwt.expiresIn);
+        const refreshToken = jwtHelper_1.jwtHelper.createToken({ role, email: userEmail, name, phone, id }, config_1.default.jwt.refresh_secret, config_1.default.jwt.refresh_expires);
         return {
             accessToken,
             refreshToken,
+            id,
             name,
             phone,
             email: userEmail,
@@ -63,7 +72,7 @@ const userLogin = (payload) => __awaiter(void 0, void 0, void 0, function* () {
         };
     }
     catch (error) {
-        throw new ApiError_1.default(http_status_1.default.INTERNAL_SERVER_ERROR, 'Internal server error');
+        throw new ApiError_1.default(http_status_1.default.INTERNAL_SERVER_ERROR, "Internal server error");
     }
 });
 const refreshToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
@@ -73,21 +82,24 @@ const refreshToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
         verifiedToken = jwtHelper_1.jwtHelper.verifyToken(token, config_1.default.jwt.refresh_secret);
     }
     catch (error) {
-        throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, 'Invalid refresh token');
+        throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, "Invalid refresh token");
     }
     // check deleted user
-    const { userId, role } = verifiedToken;
+    const { email, role, name, phone, id } = verifiedToken;
     const user = new user_model_1.User();
-    const isUserExist = yield user.isUserExist(userId);
+    const isUserExist = yield user.isUserExist(email);
     if (!isUserExist) {
-        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, 'User not found');
+        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, "User not found");
     }
-    if (role !== 'admin') {
-        throw new ApiError_1.default(http_status_1.default.FORBIDDEN, 'Forbidden');
+    if (role !== "Admin") {
+        throw new ApiError_1.default(http_status_1.default.FORBIDDEN, "Forbidden");
     }
     // create access token and refresh token
     const newAccessToken = jwtHelper_1.jwtHelper.createToken({
-        userId,
+        id,
+        name,
+        email,
+        phone,
         role,
     }, config_1.default.jwt.secret, config_1.default.jwt.expiresIn);
     return {
@@ -97,14 +109,14 @@ const refreshToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
 const changePassword = (user, payload) => __awaiter(void 0, void 0, void 0, function* () {
     const { oldPassword, newPassword } = payload;
     // Find the user by email
-    const isUserExist = yield user_model_1.User.findOne({ email: user === null || user === void 0 ? void 0 : user.email }).select('+password');
+    const isUserExist = yield user_model_1.User.findOne({ email: user === null || user === void 0 ? void 0 : user.email }).select("+password");
     if (!isUserExist) {
-        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, 'User does not exist');
+        throw new ApiError_1.default(http_status_1.default.NOT_FOUND, "User does not exist");
     }
     // Checking old password
     const isPasswordMatched = yield isUserExist.isPasswordMatched(oldPassword, isUserExist.password);
     if (!isPasswordMatched) {
-        throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, 'Old Password is incorrect');
+        throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, "Old Password is incorrect");
     }
     // Update password
     isUserExist.password = newPassword;
@@ -114,5 +126,5 @@ exports.AuthService = {
     createUser,
     userLogin,
     refreshToken,
-    changePassword
+    changePassword,
 };

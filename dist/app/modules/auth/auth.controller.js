@@ -63,6 +63,7 @@ const userLogin = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void
         success: true,
         message: message_1.responseMessage.SIGNIN_MESSAGE,
         data: {
+            id: result.id,
             name: result.name,
             phone: result.phone,
             email: result.email,

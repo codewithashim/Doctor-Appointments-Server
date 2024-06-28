@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DoctorsRoutes = void 0;
+const express_1 = __importDefault(require("express"));
+const validateRequest_1 = __importDefault(require("../../middlewares/validateRequest"));
+const auth_1 = __importDefault(require("../../middlewares/auth"));
+const user_1 = require("../../../enums/user");
+const doctor_validation_1 = require("./doctor.validation");
+const doctor_controller_1 = require("./doctor.controller");
+const router = express_1.default.Router();
+router.post("/create", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.DOCTOR), (0, validateRequest_1.default)(doctor_validation_1.doctorValidator.createDoctorZodSchema), doctor_controller_1.DoctorController.createDoctor);
+router.get("/get", doctor_controller_1.DoctorController.getAllDoctor);
+router.get("/:id", doctor_controller_1.DoctorController.getDoctorById);
+router.get("/user/:userId", doctor_controller_1.DoctorController.getDoctorById);
+router.patch("/:id", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.DOCTOR), doctor_controller_1.DoctorController.updateDoctor);
+router.delete("/:id", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN), doctor_controller_1.DoctorController.deleteDoctor);
+exports.DoctorsRoutes = router;
