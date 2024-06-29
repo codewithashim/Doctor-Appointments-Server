@@ -17,6 +17,10 @@ const AppointmentsSchema = new mongoose_1.Schema({
         type: Date,
         required: true,
     },
+    appointment_date: {
+        type: Date,
+        required: true,
+    },
 }, {
     timestamps: true,
     toJSON: {

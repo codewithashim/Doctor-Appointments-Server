@@ -15,6 +15,9 @@ const PatientsSchema = new mongoose_1.Schema({
         type: String,
         index: { unique: true },
     },
+    profile: {
+        type: String,
+    },
     userId: {
         type: mongoose_1.Schema.Types.ObjectId,
         ref: "User",

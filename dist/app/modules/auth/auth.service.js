@@ -30,11 +30,13 @@ const createUser = (payload) => __awaiter(void 0, void 0, void 0, function* () {
                 email: user === null || user === void 0 ? void 0 : user.email,
                 phone: user === null || user === void 0 ? void 0 : user.phone,
                 userId: user === null || user === void 0 ? void 0 : user._id,
+                profile: user === null || user === void 0 ? void 0 : user.profile
             });
         }
         else if (payload.role === "Doctor") {
             const doctor = yield doctor_model_1.Doctor.create({
                 name: user === null || user === void 0 ? void 0 : user.name,
+                profile: user === null || user === void 0 ? void 0 : user.profile,
                 email: user === null || user === void 0 ? void 0 : user.email,
                 userId: user === null || user === void 0 ? void 0 : user._id,
             });
@@ -58,8 +60,8 @@ const userLogin = (payload) => __awaiter(void 0, void 0, void 0, function* () {
         if (!isPasswordMatch) {
             throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, "Incorrect password");
         }
-        const { role, email: userEmail, name, phone, id } = user;
-        const accessToken = jwtHelper_1.jwtHelper.createToken({ role, email: userEmail, name, phone, id }, config_1.default.jwt.secret, config_1.default.jwt.expiresIn);
+        const { role, email: userEmail, name, phone, id, profile } = user;
+        const accessToken = jwtHelper_1.jwtHelper.createToken({ role, email: userEmail, name, phone, id, profile }, config_1.default.jwt.secret, config_1.default.jwt.expiresIn);
         const refreshToken = jwtHelper_1.jwtHelper.createToken({ role, email: userEmail, name, phone, id }, config_1.default.jwt.refresh_secret, config_1.default.jwt.refresh_expires);
         return {
             accessToken,
@@ -69,6 +71,7 @@ const userLogin = (payload) => __awaiter(void 0, void 0, void 0, function* () {
             phone,
             email: userEmail,
             role,
+            profile
         };
     }
     catch (error) {
@@ -85,7 +88,7 @@ const refreshToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
         throw new ApiError_1.default(http_status_1.default.UNAUTHORIZED, "Invalid refresh token");
     }
     // check deleted user
-    const { email, role, name, phone, id } = verifiedToken;
+    const { email, role, name, phone, id, profile } = verifiedToken;
     const user = new user_model_1.User();
     const isUserExist = yield user.isUserExist(email);
     if (!isUserExist) {
@@ -101,6 +104,7 @@ const refreshToken = (token) => __awaiter(void 0, void 0, void 0, function* () {
         email,
         phone,
         role,
+        profile
     }, config_1.default.jwt.secret, config_1.default.jwt.expiresIn);
     return {
         accessToken: newAccessToken,

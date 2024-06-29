@@ -26,7 +26,7 @@ router.get(
 
 router.get(
   "/user/:userId",
-  DoctorController.getDoctorById
+  DoctorController.getDoctorByUserId
 );
 
 router.patch(

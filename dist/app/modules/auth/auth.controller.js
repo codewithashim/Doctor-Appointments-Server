@@ -31,6 +31,7 @@ const http_status_1 = __importDefault(require("http-status"));
 const config_1 = __importDefault(require("../../../config"));
 const message_1 = require("../../../constants/message");
 const logger_1 = require("../../../shared/logger");
+const cloudinary_1 = require("../../middlewares/cloudinary/cloudinary");
 const createUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userData = req.body;
     if (!userData.phone) {
@@ -39,6 +40,16 @@ const createUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
             success: false,
             message: "Phone number is required",
         });
+    }
+    let profileImageUrl;
+    if (req.file) {
+        const uploadResult = yield (0, cloudinary_1.uploadOnCloudinary)(req.file.path);
+        if (uploadResult) {
+            profileImageUrl = uploadResult.secure_url;
+        }
+    }
+    if (profileImageUrl) {
+        userData.profile = profileImageUrl;
     }
     logger_1.logger.info(`CreateUser called with data: ${JSON.stringify(userData)}`);
     const result = yield auth_service_1.AuthService.createUser(userData);
@@ -65,6 +76,7 @@ const userLogin = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void
         data: {
             id: result.id,
             name: result.name,
+            profile: result.profile,
             phone: result.phone,
             email: result.email,
             role: result.role,

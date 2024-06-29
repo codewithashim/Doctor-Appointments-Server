@@ -7,6 +7,9 @@ const DoctorSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    profile: {
+        type: String,
+    },
     email: {
         type: String,
         required: true,

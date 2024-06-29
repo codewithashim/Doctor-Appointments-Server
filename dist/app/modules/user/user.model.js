@@ -28,6 +28,9 @@ const UserSchema = new mongoose_1.Schema({
         unique: true,
         index: true,
     },
+    profile: {
+        type: String,
+    },
     phone: {
         type: String,
         index: { unique: true },

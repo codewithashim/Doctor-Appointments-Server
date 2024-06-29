@@ -42,4 +42,4 @@ router.delete(
   AppointmentsController.deleteAppointments
 );
 
-export const AppointmentssRoutes = router;
+export const AppointmentsRoutes = router;
