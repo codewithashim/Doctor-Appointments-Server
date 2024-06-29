@@ -1,0 +1,988 @@
+{
+	"info": {
+		"_postman_id": "1e8e3427-1a76-4212-8be6-a8ddc705a281",
+		"name": "Doctor Portal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19459280",
+		"_collection_link": "https://www.postman.com/restless-escape-458382/workspace/doctor-portal/collection/19459280-1e8e3427-1a76-4212-8be6-a8ddc705a281?action=share&source=collection_link&creator=19459280"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"name\": \"Ashim Rudra Paul\",\n    \"email\": \"codewithashim@gmail.com\",\n    \"phone\": \"0187245885973\",\n    \"role\": \"Patient\",\n    \"password\": \"123456789\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DPS}}/auth/signup",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SignUp 200 Ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n    \"name\": \"Ashim Rudra Paul\",\n    \"email\": \"codewithashim@gmail.com\",\n    \"phone\": \"0199999090803\",\n    \"role\": \"User\",\n    \"password\": \"123456789\"\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DPS}}/auth/signup",
+									"host": [
+										"{{DPS}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "331"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"14b-PRNQaR0ox5xCSNARzCIYcN2Rt2c\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Jun 2024 09:49:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Signup successful. Welcome!\",\n    \"data\": {\n        \"name\": \"Ashim Rudra Paul\",\n        \"email\": \"codewithashim@gmail.com\",\n        \"phone\": \"0199999090803\",\n        \"role\": \"User\",\n        \"_id\": \"667e870ea062398717fdaded\",\n        \"createdAt\": \"2024-06-28T09:49:03.001Z\",\n        \"updatedAt\": \"2024-06-28T09:49:03.001Z\",\n        \"__v\": 0,\n        \"id\": \"667e870ea062398717fdaded\"\n    }\n}"
+						},
+						{
+							"name": "SignUp 400 Bed Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n    \"name\": \"Ashim Rudra Paul\",\n    \"email\": \"codewithashim90@gmail.com\",\n    \"phone\": \"019995885973\",\n    \"role\": \"Patient\",\n    \"password\": \"123456789\"\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DPS}}/auth/signup",
+									"host": [
+										"{{DPS}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "874"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36a-wlP6PRZOCimAqzLi1OAY7AHY8w0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Jun 2024 19:08:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Validation Error\",\n    \"errorMessages\": [\n        {\n            \"path\": \"role\",\n            \"message\": \"Invalid enum value. Expected 'User' | 'Admin' | 'Doctor', received 'Patient'\"\n        }\n    ],\n    \"stack\": \"ZodError: [\\n  {\\n    \\\"received\\\": \\\"Patient\\\",\\n    \\\"code\\\": \\\"invalid_enum_value\\\",\\n    \\\"options\\\": [\\n      \\\"User\\\",\\n      \\\"Admin\\\",\\n      \\\"Doctor\\\"\\n    ],\\n    \\\"path\\\": [\\n      \\\"body\\\",\\n      \\\"role\\\"\\n    ],\\n    \\\"message\\\": \\\"Invalid enum value. Expected 'User' | 'Admin' | 'Doctor', received 'Patient'\\\"\\n  }\\n]\\n    at Object.get error [as error] (/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/node_modules/zod/lib/types.js:55:31)\\n    at ZodObject.parseAsync (/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/node_modules/zod/lib/types.js:183:22)\\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\"\n}"
+						},
+						{
+							"name": "SignUp 500 Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n    \"name\": \"Ashim Rudra Paul\",\n    \"email\": \"codewithashim90@gmail.com\",\n    \"phone\": \"019995885973\",\n    \"role\": \"Patient\",\n    \"password\": \"123456789\"\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DPS}}/auth/signup",
+									"host": [
+										"{{DPS}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "523"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20b-wmoNqjUwKgtQRRjZo5k1+klL6eM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Jun 2024 19:10:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Internal Server Error\",\n    \"errorMessages\": [\n        {\n            \"path\": \"\",\n            \"message\": \"Internal Server Error\"\n        }\n    ],\n    \"stack\": \"Error: Internal Server Error\\n    at /home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/src/app/modules/auth/auth.service.ts:34:11\\n    at Generator.throw (<anonymous>)\\n    at rejected (/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/src/app/modules/auth/auth.service.ts:6:65)\\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "SIgnin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"email\": \"codewithashim@gmail.com\",\n    \"password\": \"123456789\"\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DPS}}/auth/login",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Signin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n    \"email\": \"codewithashim@gmail.com\",\n    \"password\": \"123456789\"\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{DPS}}/auth/login",
+									"host": [
+										"{{DPS}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVXNlciIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE5OTk5MyIsImlhdCI6MTcxOTU3MjE3NiwiZXhwIjoxNzE5NjU4NTc2fQ.qNpwrzha6lutsCnlt-yssuPwiZ0SvkorpOo_HkOvc3E; Path=/; HttpOnly"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "447"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1bf-TufUY74qhe06yuNDRWv+H/5Ln84\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Jun 2024 10:56:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Signin successful. Welcome back!\",\n    \"data\": {\n        \"name\": \"Ashim Rudra Paul\",\n        \"phone\": \"0199993\",\n        \"email\": \"codewithashim@gmail.com\",\n        \"role\": \"User\",\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVXNlciIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE5OTk5MyIsImlhdCI6MTcxOTU3MjE3NiwiZXhwIjoxNzE5NTc1Nzc2fQ.WlLSPJEL7okWHxUypsH9xV8AOZRujl5LQrNN0urGqfI\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Patients",
+			"item": [
+				{
+					"name": "Get All Patients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/patients/get",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"patients",
+								"get"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Patients 200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{DPS}}/patients/get",
+									"host": [
+										"{{DPS}}"
+									],
+									"path": [
+										"patients",
+										"get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "668"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29c-E+iBpePMF5dRLZGeCo4qsk5qa1g\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Jun 2024 21:01:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Patient fetched successfully!\",\n    \"meta\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 1\n    },\n    \"data\": [\n        {\n            \"_id\": \"667f1e0ba9b95df8aef39c09\",\n            \"name\": \"Ashim Rudra Paul\",\n            \"email\": \"codewithashim@gmail.com\",\n            \"phone\": \"0187245885973\",\n            \"userId\": {\n                \"_id\": \"667f1e0ba9b95df8aef39c07\",\n                \"name\": \"Ashim Rudra Paul\",\n                \"email\": \"codewithashim@gmail.com\",\n                \"phone\": \"0187245885973\",\n                \"role\": \"Patient\",\n                \"date_registered\": \"2024-06-28T20:33:15.539Z\",\n                \"createdAt\": \"2024-06-28T20:33:15.549Z\",\n                \"updatedAt\": \"2024-06-28T20:33:15.549Z\",\n                \"__v\": 0,\n                \"id\": \"667f1e0ba9b95df8aef39c07\"\n            },\n            \"createdAt\": \"2024-06-28T20:33:15.717Z\",\n            \"updatedAt\": \"2024-06-28T20:33:15.717Z\",\n            \"__v\": 0,\n            \"id\": \"667f1e0ba9b95df8aef39c09\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Patient By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/patients/:id",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"patients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patients By User Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/patients/user/:userId",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"patients",
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Patients",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/patients/:id",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"patients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Patients",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/patients/:id",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"patients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "Get All Doctor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/doctor/get",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"doctor",
+								"get"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Patients 200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{DPS}}/patients/get",
+									"host": [
+										"{{DPS}}"
+									],
+									"path": [
+										"patients",
+										"get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "668"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29c-E+iBpePMF5dRLZGeCo4qsk5qa1g\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Jun 2024 21:01:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Patient fetched successfully!\",\n    \"meta\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 1\n    },\n    \"data\": [\n        {\n            \"_id\": \"667f1e0ba9b95df8aef39c09\",\n            \"name\": \"Ashim Rudra Paul\",\n            \"email\": \"codewithashim@gmail.com\",\n            \"phone\": \"0187245885973\",\n            \"userId\": {\n                \"_id\": \"667f1e0ba9b95df8aef39c07\",\n                \"name\": \"Ashim Rudra Paul\",\n                \"email\": \"codewithashim@gmail.com\",\n                \"phone\": \"0187245885973\",\n                \"role\": \"Patient\",\n                \"date_registered\": \"2024-06-28T20:33:15.539Z\",\n                \"createdAt\": \"2024-06-28T20:33:15.549Z\",\n                \"updatedAt\": \"2024-06-28T20:33:15.549Z\",\n                \"__v\": 0,\n                \"id\": \"667f1e0ba9b95df8aef39c07\"\n            },\n            \"createdAt\": \"2024-06-28T20:33:15.717Z\",\n            \"updatedAt\": \"2024-06-28T20:33:15.717Z\",\n            \"__v\": 0,\n            \"id\": \"667f1e0ba9b95df8aef39c09\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Doctor By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/doctor/:id",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"doctor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor By User Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/doctor/user/:userId",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"doctor",
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Doctor",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/doctor/:id",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"doctor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Doctor",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/doctor/:id",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"doctor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Appointments",
+			"item": [
+				{
+					"name": "Get All Appointments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/appointments/get",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"appointments",
+								"get"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Patients 200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{DPS}}/patients/get",
+									"host": [
+										"{{DPS}}"
+									],
+									"path": [
+										"patients",
+										"get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "668"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"29c-E+iBpePMF5dRLZGeCo4qsk5qa1g\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 28 Jun 2024 21:01:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Patient fetched successfully!\",\n    \"meta\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 1\n    },\n    \"data\": [\n        {\n            \"_id\": \"667f1e0ba9b95df8aef39c09\",\n            \"name\": \"Ashim Rudra Paul\",\n            \"email\": \"codewithashim@gmail.com\",\n            \"phone\": \"0187245885973\",\n            \"userId\": {\n                \"_id\": \"667f1e0ba9b95df8aef39c07\",\n                \"name\": \"Ashim Rudra Paul\",\n                \"email\": \"codewithashim@gmail.com\",\n                \"phone\": \"0187245885973\",\n                \"role\": \"Patient\",\n                \"date_registered\": \"2024-06-28T20:33:15.539Z\",\n                \"createdAt\": \"2024-06-28T20:33:15.549Z\",\n                \"updatedAt\": \"2024-06-28T20:33:15.549Z\",\n                \"__v\": 0,\n                \"id\": \"667f1e0ba9b95df8aef39c07\"\n            },\n            \"createdAt\": \"2024-06-28T20:33:15.717Z\",\n            \"updatedAt\": \"2024-06-28T20:33:15.717Z\",\n            \"__v\": 0,\n            \"id\": \"667f1e0ba9b95df8aef39c09\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Appointments By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/appointments/:id",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"appointments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Appointments By User Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/appointments/user/<userId>/<userType>?page=1&limit=10&sortBy=date&sortOrder=asc",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"appointments",
+								"user",
+								"<userId>",
+								"<userType>"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "date"
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Appointments",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/appointments/:id",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"appointments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Appointments",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{DPS}}/appointments/:id",
+							"host": [
+								"{{DPS}}"
+							],
+							"path": [
+								"appointments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
