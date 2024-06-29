@@ -6,6 +6,7 @@ export type IDoctor = {
   specialty?: string;
   userId?: any;
   appointments?:any;
+  profile?: any;
 };
 
 export type IDoctorFilter = {

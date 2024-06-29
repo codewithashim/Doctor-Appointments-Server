@@ -4,10 +4,12 @@ import { createUserValidator } from "../user/user.validation";
 import { AuthController } from "./auth.controller";
 import auth from "../../middlewares/auth";
 import { ENUM_USER_ROLE } from "../../../enums/user";
+import upload from "../../middlewares/multer/multer";
 const router = express.Router();
 
 router.post(
-  "/signup",
+  '/signup',
+  upload.single('profile'),
   validateRequest(createUserValidator.createUserZodSchema),
   AuthController.createUser
 );

@@ -6,6 +6,7 @@ export type IPatients = {
   phone?: string;
   userId?: any;
   appointments?: any;
+  profile?:any 
 };
 
 export type IPatientFilter = {

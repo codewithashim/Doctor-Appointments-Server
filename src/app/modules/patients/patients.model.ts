@@ -15,6 +15,9 @@ const PatientsSchema = new Schema<IPatients>(
       type: String,
       index: { unique: true },
     },
+    profile: {
+      type: String,
+    },
     userId: {
       type: Schema.Types.ObjectId,
       ref: "User",

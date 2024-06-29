@@ -7,6 +7,7 @@ import httpStatus from "http-status";
 import config from "../../../config";
 import { responseMessage } from "../../../constants/message";
 import { logger } from "../../../shared/logger";
+import { uploadOnCloudinary } from "../../middlewares/cloudinary/cloudinary";
 
 const createUser = catchAsync(async (req: Request, res: Response) => {
   const userData: IUser = req.body;
@@ -17,6 +18,18 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
       success: false,
       message: "Phone number is required",
     });
+  }
+
+  let profileImageUrl: string | undefined;
+  if (req.file) {
+    const uploadResult = await uploadOnCloudinary(req.file.path);
+    if (uploadResult) {
+      profileImageUrl = uploadResult.secure_url;
+    }
+  }
+
+  if (profileImageUrl) {
+    userData.profile = profileImageUrl;
   }
 
   logger.info(`CreateUser called with data: ${JSON.stringify(userData)}`);
@@ -49,6 +62,7 @@ const userLogin = catchAsync(async (req: Request, res: Response) => {
     data: {
       id: result.id,
       name: result.name,
+      profile: result.profile,
       phone: result.phone,
       email: result.email,
       role: result.role,

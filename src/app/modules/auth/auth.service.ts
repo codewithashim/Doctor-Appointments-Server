@@ -24,10 +24,12 @@ const createUser = async (payload: IUser): Promise<IUser | null> => {
         email: user?.email,
         phone: user?.phone,
         userId: user?._id,
+        profile: user?.profile
       });
     } else if (payload.role === "Doctor") {
       const doctor = await Doctor.create({
         name: user?.name,
+        profile: user?.profile,
         email: user?.email,
         userId: user?._id,
       });
@@ -61,9 +63,9 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
       throw new ApiError(httpStatus.UNAUTHORIZED, "Incorrect password");
     }
 
-    const { role, email: userEmail, name, phone, id } = user;
+    const { role, email: userEmail, name, phone, id , profile} = user;
     const accessToken = jwtHelper.createToken(
-      { role, email: userEmail, name, phone , id},
+      { role, email: userEmail, name, phone , id, profile},
       config.jwt.secret as Secret,
       config.jwt.expiresIn as string
     );
@@ -82,6 +84,7 @@ const userLogin = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
       phone,
       email: userEmail,
       role,
+      profile
     };
   } catch (error) {
     throw new ApiError(
@@ -106,7 +109,7 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
 
   // check deleted user
 
-  const { email, role, name , phone, id } = verifiedToken;
+  const { email, role, name , phone, id,profile } = verifiedToken;
   const user = new User();
   const isUserExist = await user.isUserExist(email);
   if (!isUserExist) {
@@ -125,6 +128,7 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
       email,
       phone,
       role,
+      profile
     },
     config.jwt.secret as Secret,
     config.jwt.expiresIn as string

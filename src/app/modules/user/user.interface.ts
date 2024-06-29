@@ -1,12 +1,12 @@
 import { Model } from "mongoose";
 import { ENUM_USER_ROLE } from "../../../enums/user";
 
-
 export type IUser = {
   name: string;
   email: string;
   phone: string;
   password: string;
+  profile: any;
   role: ENUM_USER_ROLE;
   date_registered: Date;
   password_reset_token?: {
@@ -32,6 +32,7 @@ export type ILoginUserResponse = {
   phone?:string;
   role?:string;
   id?: string;
+  profile?:any
 };
 
 export type IRefreshTokenResponse = {
