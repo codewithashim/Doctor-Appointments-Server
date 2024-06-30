@@ -34,10 +34,10 @@ const getAllAppointments = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAppointmentsByUser = catchAsync(async (req: Request, res: Response) => {
-  const { id, userType } = req.params; 
+  const { userId, userType } = req.params; 
   const paginationOptions = pick(req.query, paginationFields);
 
-  const result = await AppointmentsService.getAppointmentsByUserId(id, userType as "patient" | "doctor", paginationOptions);
+  const result = await AppointmentsService.getAppointmentsByUserId(userId, userType as "Patient" | "Doctor", paginationOptions);
 
   sendResponse<IAppointments[]>(res, {
     statusCode: httpStatus.OK,

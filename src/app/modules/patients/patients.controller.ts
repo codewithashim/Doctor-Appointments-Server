@@ -42,9 +42,7 @@ const getAllPatient = catchAsync(async (req: Request, res: Response) => {
 
 const getPatientByUserId = catchAsync(async (req: Request, res: Response) => {
   const userId = req.params.userId;  
-
   const result = await PatientService.getPatientsByUserId(userId);
-
   sendResponse<any>(res, {
     statusCode: httpStatus.OK,
     success: true,

@@ -157,7 +157,7 @@ const deleteAppointments = async (
 
 const getAppointmentsByUserId = async (
   userId: string,
-  userType: "patient" | "doctor",
+  userType: "Patient" | "Doctor",
   paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IAppointments[]>> => {
   const { limit, page, skip, sortBy, sortOrder } =
@@ -169,7 +169,7 @@ const getAppointmentsByUserId = async (
     sortConditions[sortBy] = sortOrder;
   }
 
-  const matchCondition = userType === "patient" 
+  const matchCondition = userType === "Patient" 
     ? { patient_id: new mongoose.Types.ObjectId(userId) }
     : { doctor_id: new mongoose.Types.ObjectId(userId) };
 

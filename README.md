@@ -1,7 +1,7 @@
 # API DOC
 
 ```
-https://documenter.getpostman.com/view/19459280/2sA3duFsdH#intro
+https://documenter.getpostman.com/view/19459280/2sA3duFsdH
 ```
 
 # System Design And Database Design

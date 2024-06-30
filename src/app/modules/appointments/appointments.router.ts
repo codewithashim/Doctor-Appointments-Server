@@ -20,7 +20,7 @@ router.get(
 );
 
 router.get(
-  "/user/:id/:userType",
+  "/user/:userId/:userType",
   AppointmentsController.getAppointmentsByUser
 )
 
