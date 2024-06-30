@@ -104,3 +104,15 @@ yarn dev
 
 - [Postman Documentation](https://learning.postman.com/docs/getting-started/introduction/)
 - [Postman Learning Center](https://learning.postman.com/)
+
+# **Database Acess If Need** 
+
+```
+mongodb+srv://DoctorPortalServer:ZPzS2E7OrwypvEdy@doctorportalserver.4uklp2z.mongodb.net/DoctorPortal?retryWrites=true&w=majority&appName=DoctorPortalServer
+```
+
+Open MongoDB Compass and here pest the uri here 
+
+[![1719784585317](image/README/1719784585317.png)]()
+
+![1719784707085](image/README/1719784707085.png)
