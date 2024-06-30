@@ -7,7 +7,7 @@ export type IUser = {
   phone: string;
   password: string;
   profile: any;
-  specialty:any;
+  specialty?:any;
   role: ENUM_USER_ROLE;
   date_registered: Date;
   password_reset_token?: {

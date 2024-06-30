@@ -16,6 +16,9 @@ const UserSchema = new Schema<IUser>(
       unique: true,
       index: true,
     },
+    specialty: {
+      type: String,
+    },
     profile: {
       type: String,
     },
