@@ -31,6 +31,7 @@ const createUser = async (payload: IUser): Promise<IUser | null> => {
         name: user?.name,
         profile: user?.profile,
         email: user?.email,
+        specialty: user?.specialty,
         userId: user?._id,
       });
     }

@@ -14,6 +14,11 @@
             "date": 1719600280044,
             "name": "/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/logs/success/DPS-2024-06-29-info.log",
             "hash": "2ca070fe0e07c23fe62ab2d7e355e1b11d938bcf4bb63f9970a1ea03ecba9de8"
+        },
+        {
+            "date": 1719687587814,
+            "name": "/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/logs/success/DPS-2024-06-30-info.log",
+            "hash": "d4f827887ea4e49613e843b5fd08b37c9b04724a8c2f4ed6c8765cc03f609cfb"
         }
     ],
     "hashType": "sha256"

@@ -7,6 +7,7 @@ export type IUser = {
   phone: string;
   password: string;
   profile: any;
+  specialty:any;
   role: ENUM_USER_ROLE;
   date_registered: Date;
   password_reset_token?: {
@@ -32,7 +33,8 @@ export type ILoginUserResponse = {
   phone?:string;
   role?:string;
   id?: string;
-  profile?:any
+  profile?:any;
+  specialty?:any
 };
 
 export type IRefreshTokenResponse = {

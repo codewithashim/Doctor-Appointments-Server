@@ -14,6 +14,11 @@
             "date": 1719600280059,
             "name": "/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/logs/rejections/DPS-2024-06-29-rejections.log",
             "hash": "95f885f86edddc4a60cf74b4d60ff63eb610f2432abd9254c6c8e5de2b4cd98e"
+        },
+        {
+            "date": 1719687587821,
+            "name": "/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/logs/rejections/DPS-2024-06-30-rejections.log",
+            "hash": "97f2d07d8d347aa3cdffba4bf1420a20a8bbaa0039fad61ba615c2f330062581"
         }
     ],
     "hashType": "sha256"
