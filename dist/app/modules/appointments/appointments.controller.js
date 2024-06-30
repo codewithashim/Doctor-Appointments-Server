@@ -41,9 +41,9 @@ const getAllAppointments = (0, catchAsync_1.default)((req, res) => __awaiter(voi
     });
 }));
 const getAppointmentsByUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { id, userType } = req.params;
+    const { userId, userType } = req.params;
     const paginationOptions = (0, pick_1.default)(req.query, pagination_1.paginationFields);
-    const result = yield appointments_service_1.AppointmentsService.getAppointmentsByUserId(id, userType, paginationOptions);
+    const result = yield appointments_service_1.AppointmentsService.getAppointmentsByUserId(userId, userType, paginationOptions);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,

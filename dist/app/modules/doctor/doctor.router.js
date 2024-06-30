@@ -14,7 +14,7 @@ const router = express_1.default.Router();
 router.post("/create", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.DOCTOR), (0, validateRequest_1.default)(doctor_validation_1.doctorValidator.createDoctorZodSchema), doctor_controller_1.DoctorController.createDoctor);
 router.get("/get", doctor_controller_1.DoctorController.getAllDoctor);
 router.get("/:id", doctor_controller_1.DoctorController.getDoctorById);
-router.get("/user/:userId", doctor_controller_1.DoctorController.getDoctorById);
+router.get("/user/:userId", doctor_controller_1.DoctorController.getDoctorByUserId);
 router.patch("/:id", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.DOCTOR), doctor_controller_1.DoctorController.updateDoctor);
 router.delete("/:id", (0, auth_1.default)(user_1.ENUM_USER_ROLE.ADMIN), doctor_controller_1.DoctorController.deleteDoctor);
 exports.DoctorsRoutes = router;

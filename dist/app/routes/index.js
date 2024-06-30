@@ -29,7 +29,7 @@ const moduleRoutes = [
     },
     {
         path: "/appointments",
-        route: appointments_router_1.AppointmentssRoutes,
+        route: appointments_router_1.AppointmentsRoutes,
     },
 ];
 moduleRoutes.forEach((route) => router.use(route.path, route.route));

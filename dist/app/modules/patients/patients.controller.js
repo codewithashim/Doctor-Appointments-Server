@@ -44,7 +44,8 @@ const getAllPatient = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
     });
 }));
 const getPatientByUserId = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield patients_service_1.PatientService.getPatientsByUserId(req.params.id);
+    const userId = req.params.userId;
+    const result = yield patients_service_1.PatientService.getPatientsByUserId(userId);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,

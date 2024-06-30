@@ -29,17 +29,19 @@ const http_status_1 = __importDefault(require("http-status"));
 const paginationHelper_1 = require("../../../helpers/paginationHelper");
 const mongoose_1 = __importDefault(require("mongoose"));
 const appointments_model_1 = require("./appointments.model");
-const patients_model_1 = require("../patients/patients.model");
 const doctor_model_1 = require("../doctor/doctor.model");
 const message_1 = require("../../../constants/message");
+const patients_model_1 = require("../patients/patients.model");
 const createAppointments = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const appointment = yield appointments_model_1.Appointments.create(payload);
+        console.log(appointment, 'appointment');
+        console.log(payload === null || payload === void 0 ? void 0 : payload.patient_id, "payload?.patient_id");
         yield patients_model_1.Patients.findByIdAndUpdate(payload === null || payload === void 0 ? void 0 : payload.patient_id, {
-            $push: { appointments: appointment._id }
+            $push: { appointments: appointment === null || appointment === void 0 ? void 0 : appointment._id }
         });
         yield doctor_model_1.Doctor.findByIdAndUpdate(payload === null || payload === void 0 ? void 0 : payload.doctor_id, {
-            $push: { appointments: appointment._id }
+            $push: { appointments: appointment === null || appointment === void 0 ? void 0 : appointment._id }
         });
         return appointment;
     }
@@ -142,7 +144,7 @@ const getAppointmentsByUserId = (userId, userType, paginationOptions) => __await
     if (sortBy && sortOrder) {
         sortConditions[sortBy] = sortOrder;
     }
-    const matchCondition = userType === "patient"
+    const matchCondition = userType === "Patient"
         ? { patient_id: new mongoose_1.default.Types.ObjectId(userId) }
         : { doctor_id: new mongoose_1.default.Types.ObjectId(userId) };
     const appointments = yield appointments_model_1.Appointments.aggregate([

@@ -28,6 +28,9 @@ const UserSchema = new mongoose_1.Schema({
         unique: true,
         index: true,
     },
+    specialty: {
+        type: String,
+    },
     profile: {
         type: String,
     },

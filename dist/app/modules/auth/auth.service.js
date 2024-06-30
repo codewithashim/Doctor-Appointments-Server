@@ -38,6 +38,7 @@ const createUser = (payload) => __awaiter(void 0, void 0, void 0, function* () {
                 name: user === null || user === void 0 ? void 0 : user.name,
                 profile: user === null || user === void 0 ? void 0 : user.profile,
                 email: user === null || user === void 0 ? void 0 : user.email,
+                specialty: user === null || user === void 0 ? void 0 : user.specialty,
                 userId: user === null || user === void 0 ? void 0 : user._id,
             });
         }

@@ -29,6 +29,7 @@ const http_status_1 = __importDefault(require("http-status"));
 const paginationHelper_1 = require("../../../helpers/paginationHelper");
 const patients_constents_1 = require("./patients.constents");
 const patients_model_1 = require("./patients.model");
+const message_1 = require("../../../constants/message");
 const createPatient = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const patient = yield patients_model_1.Patients.create(payload);
     return patient;
@@ -88,13 +89,19 @@ const getPatientById = (id) => __awaiter(void 0, void 0, void 0, function* () {
     return patient;
 });
 const getPatientsByUserId = (userId) => __awaiter(void 0, void 0, void 0, function* () {
-    const patients = yield patients_model_1.Patients.find({ userId })
-        .populate({
-        path: "userAppointments",
-        options: { sort: { createdAt: -1 } },
-    })
-        .exec();
-    return patients;
+    try {
+        const patients = yield patients_model_1.Patients.findOne({ userId })
+            .populate({
+            path: "userAppointments",
+            options: { sort: { createdAt: -1 } },
+        })
+            .exec();
+        return patients;
+    }
+    catch (error) {
+        console.log(error);
+        throw new ApiError_1.default(http_status_1.default.INTERNAL_SERVER_ERROR, `${message_1.responseMessage.FAILD_MESSAGE} get patient`);
+    }
 });
 const updatePatient = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
     const isExist = yield patients_model_1.Patients.findOne({ _id: id });
