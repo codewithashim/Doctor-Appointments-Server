@@ -16,13 +16,39 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": " {\n    \"name\": \"Ashim Rudra Paul\",\n    \"email\": \"codewithashim@gmail.com\",\n    \"phone\": \"0187245885973\",\n    \"role\": \"Patient\",\n    \"password\": \"123456789\"\n }",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Portal Admin",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01740737449",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "profile",
+									"type": "file",
+									"src": "/home/codewithashim/Downloads/download (3).jpeg"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{DPS}}/auth/signup",
@@ -36,71 +62,6 @@
 						}
 					},
 					"response": [
-						{
-							"name": "SignUp 200 Ok",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": " {\n    \"name\": \"Ashim Rudra Paul\",\n    \"email\": \"codewithashim@gmail.com\",\n    \"phone\": \"0199999090803\",\n    \"role\": \"User\",\n    \"password\": \"123456789\"\n }",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{DPS}}/auth/signup",
-									"host": [
-										"{{DPS}}"
-									],
-									"path": [
-										"auth",
-										"signup"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "331"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"14b-PRNQaR0ox5xCSNARzCIYcN2Rt2c\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 28 Jun 2024 09:49:03 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Signup successful. Welcome!\",\n    \"data\": {\n        \"name\": \"Ashim Rudra Paul\",\n        \"email\": \"codewithashim@gmail.com\",\n        \"phone\": \"0199999090803\",\n        \"role\": \"User\",\n        \"_id\": \"667e870ea062398717fdaded\",\n        \"createdAt\": \"2024-06-28T09:49:03.001Z\",\n        \"updatedAt\": \"2024-06-28T09:49:03.001Z\",\n        \"__v\": 0,\n        \"id\": \"667e870ea062398717fdaded\"\n    }\n}"
-						},
 						{
 							"name": "SignUp 400 Bed Request",
 							"originalRequest": {
@@ -230,6 +191,193 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"success\": false,\n    \"message\": \"Internal Server Error\",\n    \"errorMessages\": [\n        {\n            \"path\": \"\",\n            \"message\": \"Internal Server Error\"\n        }\n    ],\n    \"stack\": \"Error: Internal Server Error\\n    at /home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/src/app/modules/auth/auth.service.ts:34:11\\n    at Generator.throw (<anonymous>)\\n    at rejected (/home/codewithashim/Web Application/Programmer Lab/Docter Portal/server/src/app/modules/auth/auth.service.ts:6:65)\\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\"\n}"
+						},
+						{
+							"name": "SignUp 200 Ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Ashim Rudra Paul",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "codewithashim@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "01740737445",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "Patient",
+											"type": "text"
+										},
+										{
+											"key": "profile",
+											"type": "file",
+											"src": "/home/codewithashim/Downloads/HeroImage.0ba1af2e253dd3729413.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{DPS}}/auth/signup",
+									"host": [
+										"{{DPS}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "480"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e0-xvhHDdFXfYaKQrDiLXZlraUpxnY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 10:00:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Signup successful. Welcome!\",\n    \"data\": {\n        \"name\": \"Ashim Rudra Paul\",\n        \"email\": \"codewithashim@gmail.com\",\n        \"profile\": \"https://res.cloudinary.com/codewithashim/image/upload/v1719655255/ruvlcfgspugv5yshwhky.jpg\",\n        \"phone\": \"01740737445\",\n        \"role\": \"Patient\",\n        \"_id\": \"667fdb57a0a782f724881de5\",\n        \"date_registered\": \"2024-06-29T10:00:55.937Z\",\n        \"createdAt\": \"2024-06-29T10:00:55.950Z\",\n        \"updatedAt\": \"2024-06-29T10:00:55.950Z\",\n        \"__v\": 0,\n        \"id\": \"667fdb57a0a782f724881de5\"\n    }\n}"
+						},
+						{
+							"name": "SignUp For Doctor",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Caitlyn Cain",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "anthony11@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "+1-234-567-8902",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "Doctor",
+											"type": "text"
+										},
+										{
+											"key": "profile",
+											"type": "file",
+											"src": "/home/codewithashim/Downloads/istockphoto-1313720249-612x612.jpg"
+										},
+										{
+											"key": "specialty",
+											"value": "Ophthalmology",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{DPS}}/auth/signup",
+									"host": [
+										"{{DPS}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "475"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1db-2gAbBEqfsbQ18LryToNW0E+WkTM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 30 Jun 2024 09:46:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Signup successful. Welcome!\",\n    \"data\": {\n        \"name\": \"Caitlyn Cain\",\n        \"email\": \"anthony11@gmail.com\",\n        \"profile\": \"https://res.cloudinary.com/codewithashim/image/upload/v1719740795/ck6gyzpqtujc7z9n6yby.jpg\",\n        \"phone\": \"+1-234-567-8902\",\n        \"role\": \"Doctor\",\n        \"_id\": \"6681297bd4ded1286bc06ec6\",\n        \"date_registered\": \"2024-06-30T09:46:35.905Z\",\n        \"createdAt\": \"2024-06-30T09:46:35.909Z\",\n        \"updatedAt\": \"2024-06-30T09:46:35.909Z\",\n        \"__v\": 0,\n        \"id\": \"6681297bd4ded1286bc06ec6\"\n    }\n}"
 						}
 					]
 				},
@@ -429,24 +577,18 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE3NDA3Mzc0NDUiLCJpZCI6IjY2ODE0M2RkZDRkMzE4ZWEzNDYzNDc3OSIsInByb2ZpbGUiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9jb2Rld2l0aGFzaGltL2ltYWdlL3VwbG9hZC92MTcxOTc0NzU0OC9qZGhnenR3ZTk5OGh5ZnVlbGdxMS5qcGciLCJpYXQiOjE3MTk3NTgxOTQsImV4cCI6MTcxOTc2MTc5NH0.GZvXzKifc7rMe6QZama1TCwkp3Tmg0DDw9s40gm8JGk",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{DPS}}/patients/:id",
+							"raw": "{{DPS}}/patients/668143ddd4d318ea3463477b",
 							"host": [
 								"{{DPS}}"
 							],
 							"path": [
 								"patients",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
+								"668143ddd4d318ea3463477b"
 							]
 						}
 					},
@@ -459,25 +601,19 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE3NDA3Mzc0NDUiLCJpZCI6IjY2ODE0M2RkZDRkMzE4ZWEzNDYzNDc3OSIsInByb2ZpbGUiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9jb2Rld2l0aGFzaGltL2ltYWdlL3VwbG9hZC92MTcxOTc0NzU0OC9qZGhnenR3ZTk5OGh5ZnVlbGdxMS5qcGciLCJpYXQiOjE3MTk3NTgxOTQsImV4cCI6MTcxOTc2MTc5NH0.GZvXzKifc7rMe6QZama1TCwkp3Tmg0DDw9s40gm8JGk",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{DPS}}/patients/user/:userId",
+							"raw": "{{DPS}}/patients/user/668143ddd4d318ea34634779",
 							"host": [
 								"{{DPS}}"
 							],
 							"path": [
 								"patients",
 								"user",
-								":userId"
-							],
-							"variable": [
-								{
-									"key": "userId",
-									"value": ""
-								}
+								"668143ddd4d318ea34634779"
 							]
 						}
 					},
@@ -890,15 +1026,15 @@
 							}
 						],
 						"url": {
-							"raw": "{{DPS}}/appointments/user/<userId>/<userType>?page=1&limit=10&sortBy=date&sortOrder=asc",
+							"raw": "{{DPS}}/appointments/user/668143ddd4d318ea3463477b/Patient?page=1&limit=20&sortBy=date&sortOrder=asc",
 							"host": [
 								"{{DPS}}"
 							],
 							"path": [
 								"appointments",
 								"user",
-								"<userId>",
-								"<userType>"
+								"668143ddd4d318ea3463477b",
+								"Patient"
 							],
 							"query": [
 								{
@@ -907,7 +1043,7 @@
 								},
 								{
 									"key": "limit",
-									"value": "10"
+									"value": "20"
 								},
 								{
 									"key": "sortBy",
@@ -920,7 +1056,90 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Get Appointments By User Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUGF0aWVudCIsImVtYWlsIjoiY29kZXdpdGhhc2hpbUBnbWFpbC5jb20iLCJuYW1lIjoiQXNoaW0gUnVkcmEgUGF1bCIsInBob25lIjoiMDE4NzI0NTg4NTk3MyIsImlhdCI6MTcxOTYwODQzMiwiZXhwIjoxNzE5NjEyMDMyfQ.svVU8GVezKfUWhOJLcHCufSrL3MyHC5hZ0NPvDWkpgQ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{DPS}}/appointments/user/668143ddd4d318ea3463477b/Patient?page=1&limit=20&sortBy=date&sortOrder=asc",
+									"host": [
+										"{{DPS}}"
+									],
+									"path": [
+										"appointments",
+										"user",
+										"668143ddd4d318ea3463477b",
+										"Patient"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "sortBy",
+											"value": "date"
+										},
+										{
+											"key": "sortOrder",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2308"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"904-KoDnbvhf//T4l4L1S9cDWL9AAvg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 30 Jun 2024 17:20:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"success\": true,\n    \"message\": \"Appointments fetched successfully!\",\n    \"meta\": {\n        \"page\": 1,\n        \"limit\": 20,\n        \"total\": 2\n    },\n    \"data\": [\n        {\n            \"_id\": \"66817501e638eadb8f4807c8\",\n            \"patient_id\": \"668143ddd4d318ea3463477b\",\n            \"doctor_id\": \"6681431dd4d318ea34634777\",\n            \"appointment_date_time\": \"2024-06-30T00:05:00.000Z\",\n            \"time_slot\": \"09:00\",\n            \"createdAt\": \"2024-06-30T15:08:49.207Z\",\n            \"updatedAt\": \"2024-06-30T15:08:49.207Z\",\n            \"__v\": 0,\n            \"patient\": {\n                \"_id\": \"668143ddd4d318ea3463477b\",\n                \"name\": \"Ashim Rudra Paul\",\n                \"email\": \"codewithashim@gmail.com\",\n                \"phone\": \"01740737445\",\n                \"profile\": \"https://res.cloudinary.com/codewithashim/image/upload/v1719747548/jdhgztwe998hyfuelgq1.jpg\",\n                \"userId\": \"668143ddd4d318ea34634779\",\n                \"appointments\": [\n                    \"66817501e638eadb8f4807c8\",\n                    \"6681752fe638eadb8f4807cf\"\n                ],\n                \"createdAt\": \"2024-06-30T11:39:09.346Z\",\n                \"updatedAt\": \"2024-06-30T15:09:35.673Z\",\n                \"__v\": 0\n            },\n            \"doctor\": {\n                \"_id\": \"6681431dd4d318ea34634777\",\n                \"name\": \"Dr. Michael Brown\",\n                \"profile\": \"https://res.cloudinary.com/codewithashim/image/upload/v1719747357/z0angiw8ltq9wohhf6i7.jpg\",\n                \"email\": \"michael.brown@gmail.com\",\n                \"specialty\": \"Pediatrics\",\n                \"userId\": \"6681431dd4d318ea34634775\",\n                \"appointments\": [\n                    \"66817501e638eadb8f4807c8\"\n                ],\n                \"createdAt\": \"2024-06-30T11:35:57.942Z\",\n                \"updatedAt\": \"2024-06-30T15:08:49.694Z\",\n                \"__v\": 0\n            }\n        },\n        {\n            \"_id\": \"6681752fe638eadb8f4807cf\",\n            \"patient_id\": \"668143ddd4d318ea3463477b\",\n            \"doctor_id\": \"66814141d4d318ea34634773\",\n            \"appointment_date_time\": \"2024-06-30T02:20:00.000Z\",\n            \"time_slot\": \"10:00\",\n            \"createdAt\": \"2024-06-30T15:09:35.584Z\",\n            \"updatedAt\": \"2024-06-30T15:09:35.584Z\",\n            \"__v\": 0,\n            \"patient\": {\n                \"_id\": \"668143ddd4d318ea3463477b\",\n                \"name\": \"Ashim Rudra Paul\",\n                \"email\": \"codewithashim@gmail.com\",\n                \"phone\": \"01740737445\",\n                \"profile\": \"https://res.cloudinary.com/codewithashim/image/upload/v1719747548/jdhgztwe998hyfuelgq1.jpg\",\n                \"userId\": \"668143ddd4d318ea34634779\",\n                \"appointments\": [\n                    \"66817501e638eadb8f4807c8\",\n                    \"6681752fe638eadb8f4807cf\"\n                ],\n                \"createdAt\": \"2024-06-30T11:39:09.346Z\",\n                \"updatedAt\": \"2024-06-30T15:09:35.673Z\",\n                \"__v\": 0\n            },\n            \"doctor\": {\n                \"_id\": \"66814141d4d318ea34634773\",\n                \"name\": \"Dr. Jane Smith\",\n                \"profile\": \"https://res.cloudinary.com/codewithashim/image/upload/v1719746881/gn0ukjqhg4leesz9g5fj.jpg\",\n                \"email\": \"jane.smith@gmail.com\",\n                \"specialty\": \"Pediatrics\",\n                \"userId\": \"66814141d4d318ea34634771\",\n                \"createdAt\": \"2024-06-30T11:28:01.770Z\",\n                \"updatedAt\": \"2024-06-30T15:09:35.783Z\",\n                \"__v\": 0,\n                \"appointments\": [\n                    \"6681752fe638eadb8f4807cf\"\n                ]\n            }\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "Update Appointments",
