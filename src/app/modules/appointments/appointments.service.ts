@@ -6,9 +6,9 @@ import { paginationHelpers } from "../../../helpers/paginationHelper";
 import mongoose, { SortOrder } from "mongoose";
 import { IAppointments } from "./appointments.interface";
 import { Appointments } from "./appointments.model";
-import { Patients } from "../patients/patients.model";
 import { Doctor } from "../doctor/doctor.model";
 import { responseMessage } from "../../../constants/message";
+import { Patients } from "../patients/patients.model";
 
 const createAppointments = async (
   payload: IAppointments
@@ -16,12 +16,16 @@ const createAppointments = async (
   try {
     const appointment = await Appointments.create(payload);
 
+    console.log(appointment , 'appointment')
+
+    console.log(payload?.patient_id , "payload?.patient_id")
+
     await Patients.findByIdAndUpdate(payload?.patient_id, {
-      $push: { appointments: appointment._id }
+      $push: { appointments: appointment?._id }
     });
 
     await Doctor.findByIdAndUpdate(payload?.doctor_id, {
-      $push: { appointments: appointment._id }
+      $push: { appointments: appointment?._id }
     });
 
     return appointment;

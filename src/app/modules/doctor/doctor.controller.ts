@@ -40,7 +40,7 @@ const getAllDoctor = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getDoctorByUserId = catchAsync(async (req: Request, res: Response) => {
-  const result = await DoctorService.getDoctorsByUserId(req.params.id);
+  const result = await DoctorService.getDoctorsByUserId(req.params.userId);
 
   sendResponse<any>(res, {
     statusCode: httpStatus.OK,

@@ -7,6 +7,7 @@ import { SortOrder } from "mongoose";
 import { patinentSearchableFields } from "./patients.constents";
 import { IPatientFilter, IPatients } from "./patients.interface";
 import { Patients } from "./patients.model";
+import { responseMessage } from "../../../constants/message";
 
 const createPatient = async (payload: IPatients): Promise<IPatients | null> => {
   const patient = await Patients.create(payload);
@@ -84,15 +85,22 @@ const getPatientById = async (id: string): Promise<IPatients | null> => {
   return patient;
 };
 
-const getPatientsByUserId = async (userId: string): Promise<IPatients[]> => {
-  const patients = await Patients.find({ userId })
+const getPatientsByUserId = async (userId: string): Promise<any> => {
+  try {
+    const patients = await Patients.findOne({ userId })
     .populate({
       path: "userAppointments",
       options: { sort: { createdAt: -1 } },
     })
     .exec();
-
-  return patients;
+    return patients;
+  } catch (error) {
+    console.log(error)
+    throw new ApiError(
+      httpStatus.INTERNAL_SERVER_ERROR,
+      `${responseMessage.FAILD_MESSAGE} get patient`
+    );
+  }
 };
 
 const updatePatient = async (

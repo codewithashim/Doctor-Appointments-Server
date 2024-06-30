@@ -14,11 +14,11 @@ const AppointmentsSchema = new Schema<IAppointments>(
       required: true,
     },
     appointment_date_time : {
-      type: Date,
+      type: String,
       required: true,
     },
-    appointment_date : {
-      type: Date,
+    time_slot : {
+      type: String,
       required: true,
     },
   },

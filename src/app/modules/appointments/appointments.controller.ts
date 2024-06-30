@@ -10,7 +10,6 @@ import { AppointmentsService } from "./appointments.service";
 const createAppointments = catchAsync(async (req: Request, res: Response) => {
   const data = req.body;
   const result = await AppointmentsService.createAppointments(data);
-
   sendResponse<IAppointments>(res, {
     statusCode: httpStatus.OK,
     success: true,

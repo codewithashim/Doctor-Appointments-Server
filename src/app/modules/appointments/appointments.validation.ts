@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const createAppointmentsZodSchema = z.object({
   body: z.object({
-    user_id: z.string({
+    patient_id: z.string({
       required_error: "User id is required",
     }),
     doctor_id: z.string({
