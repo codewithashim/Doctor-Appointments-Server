@@ -10,6 +10,10 @@ https://documenter.getpostman.com/view/19459280/2sA3duFsdH
 https://app.eraser.io/workspace/YtRCoOlSgPRDx9AYs8CH?origin=share
 ```
 
+# Installation Demo : 
+https://www.loom.com/share/92fbaa1934934e7c86780aac7290a212?sid=348bab95-3637-4827-b067-0f874c80c488
+
+
 # Doctor Portal Backend Setup Guide
 
 This guide will walk you through setting up the Doctor Portal backend server. Doctor Portal is a platform designed for managing doctor appointments and patient records.
